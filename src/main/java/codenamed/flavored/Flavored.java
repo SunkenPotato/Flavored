@@ -1,5 +1,8 @@
 package codenamed.flavored;
 
+import codenamed.flavored.registry.FlavoredBlocks;
+import codenamed.flavored.registry.FlavoredItemGroup;
+import codenamed.flavored.registry.FlavoredItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -18,6 +21,14 @@ public class Flavored implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+
+
+		FlavoredBlocks.registerModBlocks();
+		FlavoredItems.registerModItems();
+		FlavoredItemGroup.registerItemGroups();
 	}
+
+
+
 
 }

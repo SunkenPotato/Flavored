@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"codenamed.flavored.FlavoredDataGenerator"
+		],
+		"client": [
+			"codenamed.flavored.FlavoredClient"
 		]
 	},
 	"mixins": [
