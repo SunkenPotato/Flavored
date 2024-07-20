@@ -3,6 +3,7 @@ package codenamed.flavored.registry;
 import codenamed.flavored.Flavored;
 import codenamed.flavored.block.custom.TomatoBushBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
@@ -14,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class FlavoredBlocks {
     public static final Block TOMATO_BUSH = registerBlockWithoutItem("tomato_bush",
-            new TomatoBushBlock(FabricBlockSettings.copy(Blocks.SWEET_BERRY_BUSH)
+            new TomatoBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)
                     .noCollision()
                     .ticksRandomly()
                     .breakInstantly()
