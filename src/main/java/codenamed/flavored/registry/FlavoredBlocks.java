@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CropBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -38,6 +39,9 @@ public class FlavoredBlocks {
                     .breakInstantly()
                     .nonOpaque()
                     .sounds(BlockSoundGroup.SWEET_BERRY_BUSH)));
+
+    public static final Block GARLICS = registerBlock("garlics",
+            new CropBlock(AbstractBlock.Settings.copy(Blocks.CARROTS)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

@@ -22,6 +22,8 @@ public class FlavoredItemGroup {
                         entries.add(FlavoredItems.TOMATO);
                         entries.add(FlavoredItems.CUCUMBER);
                         entries.add(FlavoredItems.PEPPER);
+                        entries.add(FlavoredItems.GARLIC);
+
 
 
 

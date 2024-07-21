@@ -4,6 +4,7 @@ import codenamed.flavored.Flavored;
 import codenamed.flavored.item.custom.CucumberSeedsItem;
 import codenamed.flavored.item.custom.PepperSeedsItem;
 import codenamed.flavored.item.custom.TomatoSeedsItem;
+import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -17,6 +18,9 @@ public class FlavoredItems {
             new Item(new Item.Settings().food(FlavoredFoodComponents.CUCUMBER)));
     public static final Item PEPPER = registerItem("pepper",
             new Item(new Item.Settings().food(FlavoredFoodComponents.PEPPER)));
+
+    public static final Item GARLIC = registerItem("garlic",
+            new AliasedBlockItem(FlavoredBlocks.GARLICS, new Item.Settings().food(FlavoredFoodComponents.GARLIC)));
 
     public static final Item TOMATO_SEEDS = registerItem("tomato_seeds",
             new TomatoSeedsItem(FlavoredBlocks.TOMATO_BUSH, new Item.Settings()));
