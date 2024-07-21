@@ -16,13 +16,17 @@ public class FlavoredItemGroup {
             FabricItemGroup.builder().displayName(Text.translatable("Flavored"))
                     .icon(() -> new ItemStack(FlavoredItems.TOMATO)).entries((displayContext, entries) -> {
 
+                        entries.add(FlavoredBlocks.CAULIFLOWER);
+                        entries.add(FlavoredBlocks.CARVED_CAULIFLOWER);
                         entries.add(FlavoredItems.TOMATO_SEEDS);
                         entries.add(FlavoredItems.CUCUMBER_SEEDS);
                         entries.add(FlavoredItems.PEPPER_SEEDS);
+                        entries.add(FlavoredItems.CAULIFLOWER_SEEDS);
                         entries.add(FlavoredItems.TOMATO);
                         entries.add(FlavoredItems.CUCUMBER);
                         entries.add(FlavoredItems.PEPPER);
                         entries.add(FlavoredItems.GARLIC);
+                        entries.add(FlavoredItems.CAULIFLOWER_CURD);
 
 
 

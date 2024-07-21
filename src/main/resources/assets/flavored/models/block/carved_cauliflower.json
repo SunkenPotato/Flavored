@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "flavored:block/cauliflower",
+    "east": "flavored:block/cauliflower",
+    "north": "flavored:block/carved_cauliflower",
+    "particle": "flavored:block/cauliflower",
+    "south": "flavored:block/cauliflower",
+    "up": "flavored:block/cauliflower",
+    "west": "flavored:block/cauliflower"
+  }
+}

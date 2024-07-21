@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "flavored:block/carved_cauliflower",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "flavored:block/carved_cauliflower"
+    },
+    "facing=south": {
+      "model": "flavored:block/carved_cauliflower",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "flavored:block/carved_cauliflower",
+      "y": 270
+    }
+  }
+}

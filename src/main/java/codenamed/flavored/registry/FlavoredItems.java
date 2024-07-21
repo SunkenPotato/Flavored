@@ -22,6 +22,9 @@ public class FlavoredItems {
     public static final Item GARLIC = registerItem("garlic",
             new AliasedBlockItem(FlavoredBlocks.GARLICS, new Item.Settings().food(FlavoredFoodComponents.GARLIC)));
 
+    public static final Item CAULIFLOWER_CURD = registerItem("cauliflower_curd",
+            new Item(new Item.Settings().food(FlavoredFoodComponents.CAULIFLOWER_CURD)));
+
     public static final Item TOMATO_SEEDS = registerItem("tomato_seeds",
             new TomatoSeedsItem(FlavoredBlocks.TOMATO_BUSH, new Item.Settings()));
 
@@ -30,6 +33,9 @@ public class FlavoredItems {
 
     public static final Item PEPPER_SEEDS = registerItem("pepper_seeds",
             new PepperSeedsItem(FlavoredBlocks.PEPPER_BUSH, new Item.Settings()));
+
+    public static final Item CAULIFLOWER_SEEDS = registerItem("cauliflower_seeds",
+            new AliasedBlockItem(FlavoredBlocks.CAULIFLOWER_STEM, new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Flavored.MOD_ID, name), item);

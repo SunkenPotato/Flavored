@@ -1,18 +1,17 @@
 package codenamed.flavored.registry;
 
 import codenamed.flavored.Flavored;
-import codenamed.flavored.block.custom.CucumberBushBlock;
-import codenamed.flavored.block.custom.PepperBushBlock;
-import codenamed.flavored.block.custom.TomatoBushBlock;
+import codenamed.flavored.block.custom.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CropBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemKeys;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
@@ -42,6 +41,19 @@ public class FlavoredBlocks {
 
     public static final Block GARLICS = registerBlock("garlics",
             new CropBlock(AbstractBlock.Settings.copy(Blocks.CARROTS)));
+
+    public  static  final  Block CAULIFLOWER = registerBlock("cauliflower",
+            new CauliflowerBlock(AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
+
+    public  static  final  Block CARVED_CAULIFLOWER = registerBlock("carved_cauliflower",
+            new WearableCarvedCauliflowerBlock(AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).strength(1.0F).sounds(BlockSoundGroup.WOOD).allowsSpawning(Blocks::always).pistonBehavior(PistonBehavior.DESTROY)));
+
+    public  static  final  Block ATTACHED_CAULIFLOWER_STEM =
+            registerBlock ("attached_cauliflower_stem", new AttachedStemBlock(FlavoredBlockKeys.CAULIFLOWER_STEM, FlavoredBlockKeys.CAULIFLOWER, FlavoredItemKeys.CAULIFLOWER_SEEDS, AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
+
+    public  static  final  Block CAULIFLOWER_STEM =
+            registerBlock("cauliflower_stem", new StemBlock(FlavoredBlockKeys.CAULIFLOWER, FlavoredBlockKeys.ATTACHED_CAULIFLOWER_STEM, FlavoredItemKeys.CAULIFLOWER_SEEDS, AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.STEM).pistonBehavior(PistonBehavior.DESTROY)));
+
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

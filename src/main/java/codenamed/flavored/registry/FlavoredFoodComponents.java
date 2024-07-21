@@ -15,5 +15,6 @@ public class FlavoredFoodComponents {
 
     public static final FoodComponent GARLIC = new FoodComponent.Builder().nutrition(1).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA), 0.33f).build();
 
+    public static final FoodComponent CAULIFLOWER_CURD = new FoodComponent.Builder().nutrition(1).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA), 0.33f).build();
 
 }

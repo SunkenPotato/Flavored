@@ -1,11 +1,17 @@
 {
+  "block.flavored.cauliflower": "Cauliflower",
+  "block.flavored.carved_cauliflower": "Carved Cauliflower",
+
+
   "item.flavored.tomato": "Tomato",
   "item.flavored.cucumber": "Cucumber",
   "item.flavored.pepper": "Pepper",
+  "item.flavored.cauliflower_curd": "Cauliflower Curd",
 
 
   "item.flavored.tomato_seeds": "Tomato Seeds",
   "item.flavored.pepper_seeds": "Pepper Seeds",
-  "item.flavored.cucumber_seeds": "Cucumber Seeds"
+  "item.flavored.cucumber_seeds": "Cucumber Seeds",
+  "item.flavored.cauliflower_seeds": "Cauliflower Seeds"
 
 }
