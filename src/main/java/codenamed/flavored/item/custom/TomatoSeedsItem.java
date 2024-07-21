@@ -16,8 +16,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 
-public class TomatoSeedItem extends AliasedBlockItem {
-    public TomatoSeedItem(Block block, Settings settings) {
+public class TomatoSeedsItem extends AliasedBlockItem {
+    public TomatoSeedsItem(Block block, Settings settings) {
         super(block, settings);
     }
 

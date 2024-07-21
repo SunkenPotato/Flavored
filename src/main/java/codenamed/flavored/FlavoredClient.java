@@ -9,5 +9,8 @@ public class FlavoredClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(FlavoredBlocks.TOMATO_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FlavoredBlocks.CUCUMBER_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(FlavoredBlocks.PEPPER_BUSH, RenderLayer.getCutout());
+
     }
 }

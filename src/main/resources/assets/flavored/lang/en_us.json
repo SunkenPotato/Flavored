@@ -1,5 +1,11 @@
 {
   "item.flavored.tomato": "Tomato",
-  "item.flavored.tomato_seeds": "Tomato Seeds"
+  "item.flavored.cucumber": "Cucumber",
+  "item.flavored.pepper": "Pepper",
+
+
+  "item.flavored.tomato_seeds": "Tomato Seeds",
+  "item.flavored.pepper_seeds": "Pepper Seeds",
+  "item.flavored.cucumber_seeds": "Cucumber Seeds"
 
 }

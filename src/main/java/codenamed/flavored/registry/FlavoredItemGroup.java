@@ -17,7 +17,12 @@ public class FlavoredItemGroup {
                     .icon(() -> new ItemStack(FlavoredItems.TOMATO)).entries((displayContext, entries) -> {
 
                         entries.add(FlavoredItems.TOMATO_SEEDS);
+                        entries.add(FlavoredItems.CUCUMBER_SEEDS);
+                        entries.add(FlavoredItems.PEPPER_SEEDS);
                         entries.add(FlavoredItems.TOMATO);
+                        entries.add(FlavoredItems.CUCUMBER);
+                        entries.add(FlavoredItems.PEPPER);
+
 
 
 

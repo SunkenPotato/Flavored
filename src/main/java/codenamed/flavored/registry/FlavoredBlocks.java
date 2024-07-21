@@ -1,6 +1,8 @@
 package codenamed.flavored.registry;
 
 import codenamed.flavored.Flavored;
+import codenamed.flavored.block.custom.CucumberBushBlock;
+import codenamed.flavored.block.custom.PepperBushBlock;
 import codenamed.flavored.block.custom.TomatoBushBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractBlock;
@@ -22,6 +24,20 @@ public class FlavoredBlocks {
                     .nonOpaque()
                     .sounds(BlockSoundGroup.SWEET_BERRY_BUSH)));
 
+    public static final Block CUCUMBER_BUSH = registerBlockWithoutItem("cucumber_bush",
+            new CucumberBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)
+                    .noCollision()
+                    .ticksRandomly()
+                    .breakInstantly()
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.SWEET_BERRY_BUSH)));
+    public static final Block PEPPER_BUSH = registerBlockWithoutItem("pepper_bush",
+            new PepperBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)
+                    .noCollision()
+                    .ticksRandomly()
+                    .breakInstantly()
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.SWEET_BERRY_BUSH)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
