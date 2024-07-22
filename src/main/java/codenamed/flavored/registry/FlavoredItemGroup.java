@@ -21,10 +21,12 @@ public class FlavoredItemGroup {
                         entries.add(FlavoredItems.TOMATO_SEEDS);
                         entries.add(FlavoredItems.CUCUMBER_SEEDS);
                         entries.add(FlavoredItems.PEPPER_SEEDS);
+                        entries.add(FlavoredItems.CORN_SEEDS);
                         entries.add(FlavoredItems.CAULIFLOWER_SEEDS);
                         entries.add(FlavoredItems.TOMATO);
                         entries.add(FlavoredItems.CUCUMBER);
                         entries.add(FlavoredItems.PEPPER);
+                        entries.add(FlavoredItems.CORN);
                         entries.add(FlavoredItems.GARLIC);
                         entries.add(FlavoredItems.CAULIFLOWER_CURD);
 

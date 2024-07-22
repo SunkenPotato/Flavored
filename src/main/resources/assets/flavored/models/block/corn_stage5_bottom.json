@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "flavored:block/corn_stage5_bottom"
+  }
+}

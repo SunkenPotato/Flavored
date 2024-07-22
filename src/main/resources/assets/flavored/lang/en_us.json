@@ -6,12 +6,14 @@
   "item.flavored.tomato": "Tomato",
   "item.flavored.cucumber": "Cucumber",
   "item.flavored.pepper": "Pepper",
+  "item.flavored.corn": "Corn",
   "item.flavored.cauliflower_curd": "Cauliflower Curd",
 
 
   "item.flavored.tomato_seeds": "Tomato Seeds",
   "item.flavored.pepper_seeds": "Pepper Seeds",
   "item.flavored.cucumber_seeds": "Cucumber Seeds",
+  "item.flavored.corn_seeds": "Corn Seeds",
   "item.flavored.cauliflower_seeds": "Cauliflower Seeds"
 
 }

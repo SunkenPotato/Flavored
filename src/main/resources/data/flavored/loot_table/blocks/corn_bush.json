@@ -10,7 +10,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "flavored:cucumber_bush",
+          "block": "flavored:corn_bush",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "3"
@@ -20,11 +20,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "flavored:cucumber"
+          "name": "flavored:corn"
         },
         {
           "type": "minecraft:item",
-          "name": "flavored:cucumber_seeds"
+          "name": "flavored:corn_seeds"
         }
       ],
       "functions": [
@@ -52,7 +52,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "flavored:cucumber_bush",
+          "block": "flavored:corn_bush",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "2"
@@ -62,11 +62,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "flavored:cucumber"
+          "name": "flavored:corn"
         },
         {
           "type": "minecraft:item",
-          "name": "flavored:cucumber_seeds"
+          "name": "flavored:corn_seeds"
         }
       ],
       "functions": [
@@ -91,5 +91,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "flavored:blocks/cucumber_bush"
+  "random_sequence": "flavored:blocks/corn_bush"
 }
