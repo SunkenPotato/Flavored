@@ -23,6 +23,9 @@ public class FlavoredItems {
     public static final Item CORN = registerItem("corn",
             new Item(new Item.Settings().food(FlavoredFoodComponents.CORN)));
 
+    public static final Item ROSEMARY = registerItem("rosemary",
+            new CornSeedsItem(FlavoredBlocks.ROSEMARY_BUSH, new Item.Settings()));
+
     public static final Item GARLIC = registerItem("garlic",
             new AliasedBlockItem(FlavoredBlocks.GARLICS, new Item.Settings().food(FlavoredFoodComponents.GARLIC)));
 

@@ -46,6 +46,14 @@ public class FlavoredBlocks {
                     .nonOpaque()
                     .sounds(BlockSoundGroup.SWEET_BERRY_BUSH)));
 
+    public static final Block ROSEMARY_BUSH = registerBlockWithoutItem("rosemary_bush",
+            new RosemaryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)
+                    .noCollision()
+                    .ticksRandomly()
+                    .breakInstantly()
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.SWEET_BERRY_BUSH)));
+
     public static final Block GARLICS = registerBlock("garlics",
             new CropBlock(AbstractBlock.Settings.copy(Blocks.CARROTS)));
 
