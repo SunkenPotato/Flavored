@@ -1,5 +1,6 @@
 package codenamed.flavored.block.custom;
 
+import codenamed.flavored.Flavored;
 import codenamed.flavored.registry.FlavoredItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
@@ -13,6 +14,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.ActionResult;
@@ -21,6 +23,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
@@ -28,16 +31,24 @@ import net.minecraft.world.event.GameEvent;
 
 import static net.minecraft.block.TallPlantBlock.withWaterloggedState;
 
-public class CornBushBlock extends SweetBerryBushBlock implements Fertilizable {
+public class CornBushBlock extends PlantBlock implements Fertilizable {
 
     public static final EnumProperty<DoubleBlockHalf> HALF;
     public static final MapCodec<CornBushBlock> CODEC = createCodec(CornBushBlock::new);
-
+    public static final int MAX_AGE = 5;
+    public static final IntProperty AGE = IntProperty.of("age", 0, 5);
+    private static final VoxelShape SMALL_SHAPE;
+    private static final VoxelShape LARGE_SHAPE;
 
     public CornBushBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(HALF, DoubleBlockHalf.LOWER));
+        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(AGE, 0).with(HALF, DoubleBlockHalf.LOWER));
 
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return null;
     }
 
     @Override
@@ -52,13 +63,49 @@ public class CornBushBlock extends SweetBerryBushBlock implements Fertilizable {
 
     }
 
+
+    @Override
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+        return true;
+    }
+
+    @Override
+    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+        return true;
+    }
+
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        super.grow(world, random, pos, state);
+        int i = (Integer)state.get(AGE);
+        if (i < MAX_AGE && world.getBaseLightLevel(pos.up(), 0) >= 9) {
+            BlockState blockState = (BlockState)state.with(AGE, i + 1);
+            world.setBlockState(pos, blockState, 2);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(blockState));
+            grow(world, random, pos, state, i);
+        }
+    }
+
+    protected boolean hasRandomTicks(BlockState state) {
+        return (Integer)state.get(AGE) < MAX_AGE;
+    }
+
+    protected void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        int i = (Integer)state.get(AGE);
+        if (i < MAX_AGE && random.nextInt(5) == 0 && world.getBaseLightLevel(pos.up(), 0) >= 9) {
+            BlockState blockState = (BlockState)state.with(AGE, i + 1);
+            world.setBlockState(pos, blockState, 2);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(blockState));
+            grow(world, random, pos, state, i);
+        }
+
+    }
+
+    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state, int oldAge) {
         if (state.get(AGE) == 2) {
             placeAt(world, state, pos, 0);
         }
     }
+
 
     protected static void onBreakInCreative(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         DoubleBlockHalf doubleBlockHalf = (DoubleBlockHalf)state.get(HALF);
@@ -87,7 +134,6 @@ public class CornBushBlock extends SweetBerryBushBlock implements Fertilizable {
 
     public static void placeAt(WorldAccess world, BlockState state, BlockPos pos, int flags) {
         BlockPos blockPos = pos.up();
-        world.setBlockState(pos, withWaterloggedState(world, pos, (BlockState)state.with(HALF, DoubleBlockHalf.LOWER)), flags);
         world.setBlockState(blockPos, withWaterloggedState(world, blockPos, (BlockState)state.with(HALF, DoubleBlockHalf.UPPER)), flags);
     }
 
@@ -109,14 +155,14 @@ public class CornBushBlock extends SweetBerryBushBlock implements Fertilizable {
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         int i = (Integer)state.get(AGE);
-        boolean bl = i == 3;
+        boolean bl = i == 5;
         if (!bl) {
             return ActionResult.PASS;
         } else {
-            int j = 1 + world.random.nextInt(2);
+            int j = 1 + world.random.nextInt(4);
             dropStack(world, pos, new ItemStack(FlavoredItems.CORN, j + (bl ? 1 : 0)));
             world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
-            BlockState blockState = (BlockState)state.with(AGE, 1);
+            BlockState blockState = (BlockState)state.with(AGE, 3);
             world.setBlockState(pos, blockState, 2);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
             return ActionResult.success(world.isClient);
@@ -129,6 +175,8 @@ public class CornBushBlock extends SweetBerryBushBlock implements Fertilizable {
 
     static {
         HALF = Properties.DOUBLE_BLOCK_HALF;
+        SMALL_SHAPE = Block.createCuboidShape(3.0, 0.0, 3.0, 13.0, 8.0, 13.0);
+        LARGE_SHAPE = Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 16.0, 15.0);
 
     }
 
