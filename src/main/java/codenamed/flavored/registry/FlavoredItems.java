@@ -1,11 +1,7 @@
 package codenamed.flavored.registry;
 
 import codenamed.flavored.Flavored;
-import codenamed.flavored.block.custom.DefaultSeedItem;
-import codenamed.flavored.item.custom.CornSeedsItem;
-import codenamed.flavored.item.custom.CucumberSeedsItem;
-import codenamed.flavored.item.custom.PepperSeedsItem;
-import codenamed.flavored.item.custom.TomatoSeedsItem;
+import codenamed.flavored.item.custom.DefaultSeedItem;
 import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
